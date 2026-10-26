@@ -1,49 +1,55 @@
 WEBVTT
 
-00:00:00.000 --> 00:00:04.844
+00:00:00.000 --> 00:00:04.786
 EnergyBench is an open benchmark for forecasting on live energy data.
 
-00:00:05.994 --> 00:00:13.206
+00:00:05.936 --> 00:00:13.311
 Forecasts of demand, renewable generation and prices underpin how power systems are operated and traded.
 
-00:00:13.456 --> 00:00:19.856
+00:00:13.561 --> 00:00:19.949
 Time-series foundation models promise accurate forecasts without task-specific training.
 
-00:00:20.106 --> 00:00:25.240
+00:00:20.199 --> 00:00:25.240
 Yet many public benchmarks overlap with the data these models were trained on.
 
-00:00:26.390 --> 00:00:36.807
-EnergyBench assembles 44 datasets and 1,811 series from system operators, power exchanges and statistical agencies.
+00:00:26.390 --> 00:00:36.087
+EnergyBench assembles 70 datasets and 2,060 series from system operators, power exchanges and statistical agencies.
 
-00:00:37.057 --> 00:00:47.021
+00:00:36.337 --> 00:00:46.452
 Its fresh track evaluates every model on data published from October 2025 onward, after the training cut-off of the evaluated models.
 
-00:00:48.171 --> 00:00:54.942
+00:00:47.602 --> 00:00:54.408
 Each dataset is scored at two operational horizons, over up to sixty forecast origins.
 
-00:00:55.192 --> 00:01:05.505
+00:00:54.658 --> 00:01:05.133
 Probabilistic and point accuracy are measured by the weighted quantile loss and the mean absolute scaled error, both relative to a seasonal naive forecast.
 
-00:01:06.655 --> 00:01:16.178
+00:01:06.283 --> 00:01:15.934
 24 foundation models are applied zero-shot, alongside 18 deep networks trained on each task and 5 statistical baselines.
 
-00:01:17.328 --> 00:01:23.623
-Here, Timestral 209M forecasts a week of German electricity demand.
+00:01:16.184 --> 00:01:23.988
+Our own model, EnergyBench-FM, is t0-gamma further pre-trained on the benchmark's training data.
 
-00:01:23.873 --> 00:01:30.667
+00:01:25.138 --> 00:01:30.609
+Here, EnergyBench-FM forecasts a week of German electricity demand.
+
+00:01:30.859 --> 00:01:37.619
 The shaded band is its eighty per cent prediction interval; the white line is the realised demand.
 
-00:01:31.817 --> 00:01:45.438
-Across all tasks, foundation models lead the probabilistic ranking. The best, Timestral 209M, reduces the weighted quantile loss of the seasonal naive baseline by 43 per cent.
+00:01:38.769 --> 00:01:49.545
+Across all tasks, EnergyBench-FM ranks first, reducing the weighted quantile loss of the seasonal naive baseline by 45 per cent.
 
-00:01:45.688 --> 00:01:49.708
+00:01:49.795 --> 00:01:56.149
+The strongest zero-shot model is Timestral 209M, at 44 per cent.
+
+00:01:56.399 --> 00:02:00.302
 The strongest task-trained network is WPMixer.
 
-00:01:50.858 --> 00:02:02.633
-The advantage of foundation models persists on unseen data: their median relative error is 0.66 on the classic datasets and 0.60 on the fresh track.
+00:02:01.452 --> 00:02:13.158
+The advantage of foundation models persists on unseen data: their median relative error is 0.66 on the classic datasets and 0.59 on the fresh track.
 
-00:02:03.783 --> 00:02:15.315
+00:02:14.308 --> 00:02:25.502
 The website lets you inspect individual forecasts, compare any two models task by task, forecast your own series in the browser, and test your own judgement against the models.
 
-00:02:16.465 --> 00:02:22.655
+00:02:26.652 --> 00:02:32.657
 Results, data sources and the full protocol are at energybench.github.io.
